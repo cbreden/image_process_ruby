@@ -3,17 +3,18 @@ require '../../lib/image_process'
 Kernel.logger.level = Logger::DEBUG
 Kernel.util_verbosity = false
 
-# error "test error"
-# log "test log"
-# debug "test debug"
+config = YAML.load_file('config.yml')
+log config
 
-CARD_ROOT = '/Users/igla/Desktop/mock/cardroot'
-ARCHIVE_BASE_PATH = '/Users/igla/Desktop/mock/archive'
-PREP_BASE_PATH = '/Users/igla/Desktop/mock/prep'
-READY_BASE_PATH = '/Users/igla/Desktop/mock/ready'
+CARD_ROOT = config['card_root'] || '/Users/igla/Desktop/mock/cardroot'
+ARCHIVE_BASE_PATH = config['archive_base_path'] || '/Users/igla/Desktop/mock/archive'
+PREP_BASE_PATH = config['prep_base_path'] || '/Users/igla/Desktop/mock/prep'
+READY_BASE_PATH = config['ready_base_path'] || '/Users/igla/Desktop/mock/ready'
 
 MAX_BATCH_SIZE = 300
+LOOP_SLEEP = 10
 
+loop do
 card_folders = Helpers::get_subfolders CARD_ROOT
 card_folders.each { |folder| 
     files = Helpers::get_all_files folder
@@ -30,3 +31,6 @@ card_folders.each { |folder|
     }
     Tasks::safe_delete_folder folder
 }
+debug "Sleeping for #{LOOP_SLEEP}s"
+sleep LOOP_SLEEP
+end

@@ -3,20 +3,21 @@ require '../../lib/image_process'
 Kernel.logger.level = Logger::INFO
 Kernel.util_verbosity = false
 
-# error "test error"
-# log "test log"
-# debug "test debug"
+config = YAML.load_file('config.yml')
+log config.inspect
 
-FTP_ROOT = '/Users/igla/Desktop/mock/ftproot'
-ARCHIVE_BASE_PATH = '/Users/igla/Desktop/mock/archive'
-PREP_BASE_PATH = '/Users/igla/Desktop/mock/prep'
-READY_BASE_PATH = '/Users/igla/Desktop/mock/ready'
+FTP_ROOT = config['ftp_root'] || '/Users/igla/Desktop/mock/ftproot'
+ARCHIVE_BASE_PATH = config['archive_base_path'] || '/Users/igla/Desktop/mock/archive'
+PREP_BASE_PATH = config['prep_base_path'] || '/Users/igla/Desktop/mock/prep'
+READY_BASE_PATH = config['ready_base_path'] || '/Users/igla/Desktop/mock/ready'
 
 DESIRED_BATCH_SIZE = 50
-MAX_AGE = 10  # debugging age seconds
-# MAX_AGE = 300  # seconds
+# MAX_AGE = 10  # debugging age seconds
+MAX_AGE = 180  # seconds
 MAX_BATCH_SIZE = 300
+LOOP_SLEEP = 10
 
+loop do
 ftp_home_folders = Helpers::get_subfolders FTP_ROOT
 ftp_home_folders.each { |folder| 
     files = Helpers::get_all_files folder
@@ -35,3 +36,6 @@ ftp_home_folders.each { |folder|
         end
     }
 }
+debug "Sleeping for #{LOOP_SLEEP}s"
+sleep LOOP_SLEEP
+end
