@@ -68,7 +68,7 @@ module Tasks
 
     def self.safe_delete_folder folder
         if Dir[folder + "/*"].empty?
-            FileUtils.rmdir folder, :verbose => util_verbosity
+            FileUtils.rmtree folder, :verbose => util_verbosity
             debug "deleted folder #{folder}"
         else
             debug "Folder not empty #{folder}"
