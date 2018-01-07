@@ -1,6 +1,6 @@
 require '../../lib/image_process'
 
-Kernel.logger.level = Logger::DEBUG
+Kernel.logger.level = Logger::INFO
 Kernel.util_verbosity = false
 
 config = YAML.load_file('config.yml')
@@ -31,6 +31,6 @@ card_folders.each { |folder|
     }
     Tasks::safe_delete_folder folder
 }
-debug "Sleeping for #{LOOP_SLEEP}s"
+log "Sleeping for #{LOOP_SLEEP}s"
 sleep LOOP_SLEEP
 end

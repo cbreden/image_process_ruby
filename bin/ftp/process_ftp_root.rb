@@ -36,6 +36,6 @@ ftp_home_folders.each { |folder|
         end
     }
 }
-debug "Sleeping for #{LOOP_SLEEP}s"
+log "Sleeping for #{LOOP_SLEEP}s"
 sleep LOOP_SLEEP
 end
