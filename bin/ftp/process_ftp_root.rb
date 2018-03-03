@@ -1,6 +1,6 @@
 require '../../lib/image_process'
 
-Kernel.logger.level = Logger::INFO
+Kernel.logger.level = Logger::DEBUG
 Kernel.util_verbosity = false
 
 config = YAML.load_file('config.yml')
@@ -19,16 +19,16 @@ LOOP_SLEEP = 10
 
 loop do
 ftp_home_folders = Helpers::get_subfolders FTP_ROOT
-ftp_home_folders.each { |folder| 
+ftp_home_folders.each { |folder|
     files = Helpers::get_all_files folder
     batches = Helpers::split_into_filetype_batches files
-    batches.each { |batch| 
+    batches.each { |batch|
         if (Helpers::has_old_file?(batch,MAX_AGE) or Helpers::has_enough_files?(batch,DESIRED_BATCH_SIZE))
             batch = Helpers::trim_files_recently_touched batch
             batch = batch.first(MAX_BATCH_SIZE)
-            unless batch.empty? 
+            unless batch.empty?
                 card = Tasks::create_card batch, PREP_BASE_PATH, '_FTP' + File.basename(folder)
-                Tasks::move_files_to_dest batch, card 
+                Tasks::move_files_to_dest batch, card
                 Tasks::copy_folder_to_dest card, ARCHIVE_BASE_PATH
                 ready_card = Tasks::move_folder_to_dest card, READY_BASE_PATH
                 Helpers::set_folder_color ready_card, '3' # yellow
