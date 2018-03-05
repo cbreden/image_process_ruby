@@ -15,6 +15,9 @@ module Tasks
             when /CR2/
                 type = 'RAW'
                 id = "_" + name.split('_').first[0..3]
+            when /ARW/
+                type = 'RAW'
+                id = "_" + name.split('_').first[0..3]
             when /JPG/
                 type = 'JPG'
                 id = "_" + name.split('_').first[0..3]
