@@ -11,10 +11,10 @@ ARCHIVE_BASE_PATH = config['archive_base_path'] || '/Users/igla/Desktop/mock/arc
 PREP_BASE_PATH = config['prep_base_path'] || '/Users/igla/Desktop/mock/prep'
 READY_BASE_PATH = config['ready_base_path'] || '/Users/igla/Desktop/mock/ready'
 
-DESIRED_BATCH_SIZE = 50
+DESIRED_BATCH_SIZE = 150
 # MAX_AGE = 10  # debugging age seconds
-MAX_AGE = 180  # seconds
-MAX_BATCH_SIZE = 300
+MAX_AGE = 240  # seconds
+MAX_BATCH_SIZE = 400
 LOOP_SLEEP = 10
 
 loop do
