@@ -1,5 +1,8 @@
 require '../../lib/image_process'
 
+$stdout.sync = true 
+$stdin.sync = true
+
 Kernel.logger.level = Logger::INFO
 Kernel.util_verbosity = false
 
