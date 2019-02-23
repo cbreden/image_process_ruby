@@ -1,19 +1,22 @@
 require '../../lib/image_process'
 
+$stdout.sync = true 
+$stdin.sync = true
+
 Kernel.logger.level = Logger::INFO
 Kernel.util_verbosity = false
 
 config = YAML.load_file('config.yml')
-log config.inspect
+log config
 
 FTP_ROOT = config['ftp_root'] || '/Users/igla/Desktop/mock/ftproot'
 ARCHIVE_BASE_PATH = config['archive_base_path'] || '/Users/igla/Desktop/mock/archive'
 PREP_BASE_PATH = config['prep_base_path'] || '/Users/igla/Desktop/mock/prep'
 READY_BASE_PATH = config['ready_base_path'] || '/Users/igla/Desktop/mock/ready'
 
-DESIRED_BATCH_SIZE = 50
+DESIRED_BATCH_SIZE = 150
 # MAX_AGE = 10  # debugging age seconds
-MAX_AGE = 180  # seconds
+MAX_AGE = 240  # seconds
 MAX_BATCH_SIZE = 300
 LOOP_SLEEP = 10
 
