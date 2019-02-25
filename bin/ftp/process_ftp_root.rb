@@ -16,7 +16,7 @@ READY_BASE_PATH = config['ready_base_path'] || '/Users/igla/Desktop/mock/ready'
 
 DESIRED_BATCH_SIZE = 150
 # MAX_AGE = 10  # debugging age seconds
-MAX_AGE = 240  # seconds
+MAX_AGE = 180  # seconds
 MAX_BATCH_SIZE = 300
 LOOP_SLEEP = 10
 
