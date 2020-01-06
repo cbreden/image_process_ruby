@@ -8,7 +8,7 @@ module Helpers
 
     def self.get_all_files folder
         debug "Getting all files inside folder #{folder}"
-        files = Dir.glob("#{folder}/*").select {|f| File.file? f}
+        files = Dir.glob("#{folder}/*").select {|f| File.file? f}.sort_by{ |f| [File.mtime(f), f] }
         debug "files found: #{files}"
         return files
     end
