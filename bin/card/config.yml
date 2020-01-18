@@ -1,0 +1,4 @@
+card_root: /Users/home/Desktop/ingest/cardroot
+archive_base_path: /Users/home/Desktop/ingest/archive
+prep_base_path: /Users/home/Desktop/ingest/prep
+ready_base_path: /Users/home/Desktop/ingest/ready
