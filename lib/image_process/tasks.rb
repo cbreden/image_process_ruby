@@ -50,7 +50,7 @@ module Tasks
         size = Dir.glob("#{folder}/*").map{|f| File.size(f)}.reduce(0, :+) / (1024 * 1024) # folder size in MB
         # there is also a `FileUtils.copy_entry` that might be worth using if cp_r is weird
         time = Benchmark.realtime { 
-            FileUtils.cp_r folder, dest_folder_base, :verbose => util_verbosity
+            FileUtils.cp_r folder, dest_folder_base, :verbose => util_verbosity, :preserve => true
         }
         log "copied #{folder} to #{dest_folder_base} in #{sprintf('%.2f',time)}s (#{sprintf('%.2f', size/time)} MBps copied)"
         return dest_folder_base + '/' + File.basename(folder)
