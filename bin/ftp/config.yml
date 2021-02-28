@@ -1,4 +1,4 @@
-ftp_root: /Users/home/Desktop/ingest/ftproot
-archive_base_path: /Users/home/Desktop/ingest/archive
-prep_base_path: /Users/home/Desktop/ingest/prep
-ready_base_path: /Users/home/Desktop/ingest/ready
+ftp_root: /Users/igla/Desktop/gg-incoming
+archive_base_path: /Volumes/ARCHIVE1/archive1
+prep_base_path: /Users/igla/Desktop/_script_workflow/prep
+ready_base_path: /Users/igla/Desktop/_script_workflow/ready
