@@ -3,7 +3,7 @@ require '../../lib/image_process'
 $stdout.sync = true 
 $stdin.sync = true
 
-Kernel.logger.level = Logger::INFO
+Kernel.logger.level = Logger::DEBUG
 Kernel.util_verbosity = false
 
 config = YAML.load_file('config.yml')
@@ -14,7 +14,7 @@ ARCHIVE_BASE_PATH = config['archive_base_path'] || '/Users/igla/Desktop/mock/arc
 PREP_BASE_PATH = config['prep_base_path'] || '/Users/igla/Desktop/mock/prep'
 READY_BASE_PATH = config['ready_base_path'] || '/Users/igla/Desktop/mock/ready'
 
-MAX_BATCH_SIZE = 300
+MAX_BATCH_SIZE = 100
 LOOP_SLEEP = 10
 
 loop do
