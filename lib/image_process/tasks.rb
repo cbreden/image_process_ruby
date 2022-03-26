@@ -23,7 +23,11 @@ module Tasks
                 id = "_" + name.split('_').first[0..3]
             when /RAF/
                 type = 'RAW'
-                id = "_" + name.split('_')[1][0..2]
+                if name.split('_')[1]
+                    id = "_" + name.split('_')[1][0..2]
+                else
+                    id = "_" + name[0..1]
+                end
             when /JPG/
                 type = 'JPG'
                 id = "_" + name.split('_').first[0..3]
