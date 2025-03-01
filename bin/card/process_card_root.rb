@@ -37,3 +37,6 @@ card_folders.each { |folder|
 log "Sleeping for #{LOOP_SLEEP}s"
 sleep LOOP_SLEEP
 end
+
+# recommend execution with:
+#   > ruby process_card_root.rb 2>&1 | tee /Users/home/Desktop/ingest/card_ingest.log

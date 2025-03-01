@@ -42,3 +42,6 @@ ftp_home_folders.each { |folder|
 log "Sleeping for #{LOOP_SLEEP}s"
 sleep LOOP_SLEEP
 end
+
+# recommend execution with:
+#   > ruby process_ftp_root.rb 2>&1 | tee /Users/home/Desktop/ingest/ftp_ingest.log
