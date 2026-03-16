@@ -59,7 +59,7 @@ module Helpers
 
     def self.trim_files_recently_touched files
         debug "checking for recently touched files..."
-        recent_files = files.select{|f| File.ctime(f) > Time.now - 15}
+        recent_files = files.select{|f| File.ctime(f) > Time.now - 30}
         log "skipping recent files: #{recent_files.inspect}" unless recent_files.empty?
         return files - recent_files
     end
